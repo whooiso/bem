@@ -1,23 +1,176 @@
-body {
+*,
+*::before,
+*::after {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #0f172a;
-  color: white;
-  display: grid;
-  place-items: center;
-  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.container {
-  text-align: center;
-  max-width: 600px;
-  padding: 24px;
+:root {
+  --navy: #0a0e1a;
+  --white: #e8e6e1;
+  --muted: rgba(232, 230, 225, 0.4);
+  --accent: rgba(232, 230, 225, 0.7);
+  --font-serif: "Playfair Display", "Georgia", serif;
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Page layout ── */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 3rem 4rem;
+}
+
+/* ── Header ── */
+
+header {
+  flex-shrink: 0;
+}
+
+.brand {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── Hero ── */
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.hero {
+  max-width: 56rem;
+}
+
+h1 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.8rem, 7vw, 6.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  text-transform: lowercase;
+}
+
+h1 em {
+  font-style: italic;
+  font-weight: 400;
 }
 
 .subtitle {
-  opacity: 0.7;
+  margin-top: 2.5rem;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: clamp(0.875rem, 1.4vw, 1.125rem);
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  color: var(--accent);
 }
 
-a {
-  color: #38bdf8;
+/* ── Footer ── */
+
+footer {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 4rem;
+}
+
+.footer-left a {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-left a:hover {
+  color: var(--white);
+}
+
+.footer-right p {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+  .page {
+    padding: 2rem 1.75rem;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 10vw, 3.5rem);
+  }
+
+  .subtitle {
+    margin-top: 1.75rem;
+    font-size: 0.9rem;
+  }
+
+  .subtitle br {
+    display: none;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding-top: 3rem;
+  }
+
+  .footer-right p {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 1.5rem 1.25rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+  }
+
+  .brand {
+    font-size: 0.65rem;
+  }
 }
