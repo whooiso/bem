@@ -7,10 +7,9 @@
 }
 
 :root {
-  --navy: #0a0e1a;
-  --white: #e8e6e1;
-  --muted: rgba(232, 230, 225, 0.4);
-  --accent: rgba(232, 230, 225, 0.7);
+  --bg: #0b0f1a;
+  --text: #e8e6e1;
+  --muted: rgba(232, 230, 225, 0.35);
   --font-serif: "Playfair Display", "Georgia", serif;
   --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
 }
@@ -22,155 +21,165 @@ html {
 }
 
 body {
-  background: var(--navy);
-  color: var(--white);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--font-sans);
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
-/* ── Page layout ── */
+/* ── Page shell ── */
 
 .page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 3rem 4rem;
+  padding: 3.5rem 4.5rem 3.5rem 4.5rem;
 }
 
-/* ── Header ── */
+/* ── Logo mark ── */
 
 header {
   flex-shrink: 0;
 }
 
-.brand {
-  font-family: var(--font-sans);
-  font-weight: 300;
-  font-size: 0.75rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--muted);
+.logo {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--text);
+  user-select: none;
 }
 
-/* ── Hero ── */
+/* ── Hero – centered headline ── */
 
 main {
   flex: 1;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-}
-
-.hero {
-  max-width: 56rem;
+  text-align: center;
+  padding-bottom: 6rem;
 }
 
 h1 {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(2.8rem, 7vw, 6.5rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--white);
-  text-transform: lowercase;
-}
-
-h1 em {
-  font-style: italic;
-  font-weight: 400;
+  font-size: clamp(2.6rem, 6.5vw, 5.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--text);
 }
 
 .subtitle {
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   font-family: var(--font-sans);
   font-weight: 300;
-  font-size: clamp(0.875rem, 1.4vw, 1.125rem);
-  line-height: 1.7;
-  letter-spacing: 0.04em;
-  color: var(--accent);
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  color: var(--muted);
 }
 
-/* ── Footer ── */
+/* ── Footer – right-aligned stack ── */
 
 footer {
   flex-shrink: 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: flex-end;
-  padding-top: 4rem;
+  gap: 1.2rem;
 }
 
-.footer-left a {
+.packages {
   font-family: var(--font-sans);
   font-weight: 300;
   font-size: 0.8rem;
-  letter-spacing: 0.06em;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  text-align: right;
+}
+
+.contact-label {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  color: var(--text);
+  margin-top: 0.8rem;
+}
+
+.email {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
   color: var(--muted);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.footer-left a:hover {
-  color: var(--white);
+.email:hover {
+  color: var(--text);
 }
 
-.footer-right p {
+.brand {
   font-family: var(--font-sans);
-  font-weight: 300;
-  font-size: 0.8rem;
-  line-height: 1.7;
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
   color: var(--muted);
-  text-align: right;
+  margin-top: 0.2rem;
 }
 
 /* ── Responsive ── */
 
 @media (max-width: 768px) {
   .page {
-    padding: 2rem 1.75rem;
+    padding: 2.5rem 2rem 2.5rem 2rem;
+  }
+
+  main {
+    padding-bottom: 4rem;
   }
 
   h1 {
-    font-size: clamp(2.2rem, 10vw, 3.5rem);
+    font-size: clamp(2rem, 8vw, 3.2rem);
   }
 
   .subtitle {
-    margin-top: 1.75rem;
-    font-size: 0.9rem;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
   }
 
-  .subtitle br {
-    display: none;
-  }
-
-  footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
-    padding-top: 3rem;
-  }
-
-  .footer-right p {
-    text-align: left;
+  .contact-label {
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .page {
-    padding: 1.5rem 1.25rem;
+    padding: 1.75rem 1.25rem 2rem 1.25rem;
+  }
+
+  main {
+    padding-bottom: 3rem;
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
 
   .subtitle {
-    font-size: 0.85rem;
-    letter-spacing: 0.02em;
+    font-size: 0.78rem;
   }
 
-  .brand {
-    font-size: 0.65rem;
+  .contact-label {
+    font-size: 1.25rem;
+  }
+
+  .logo {
+    font-size: 1.3rem;
   }
 }
