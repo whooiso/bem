@@ -1,72 +1,95 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bored Eye Media</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bored Eye Media</title>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFFMB8D33Y"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-HFFMB8D33Y');
-  </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFFMB8D33Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HFFMB8D33Y');
+    </script>
 
-  <style>
-    body {
-      margin: 0;
-      background: #0a0e1a;
-      display: flex;
-      justify-content: center;
-    }
+    <style>
+      html, body { height: 100%; }
 
-    .wrap {
-      position: relative;
-      width: 100%;
-      max-width: 1600px;
-    }
+      body {
+        margin: 0;
+        background: #0a0e1a;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        -webkit-tap-highlight-color: transparent;
+      }
 
-    picture, img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
+      .wrap {
+        position: relative;
+        width: 100%;
+        max-width: 1600px;
+      }
 
-   .email-hotspot{
-  position:absolute;
-  z-index: 50;
-  display:block;
-  background: rgba(255,0,0,0.0); /* можно временно 0.15 чтобы увидеть зону */
-  pointer-events: auto;
-}
-picture, img{
-  position: relative;
-  z-index: 1;
-}
-    @media (max-width: 768px) {
+      picture, img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      /* IMPORTANT: image should NOT steal taps on mobile */
+      img { pointer-events: none; }
+
+      /* Clickable hotspot */
       .email-hotspot {
-        left: 20%;
-        top: 77%;
-        width: 60%;
+        position: absolute;
+        z-index: 999;        /* above everything */
+        display: block;
+        /* optional: debug — uncomment to see the clickable area */
+        /* outline: 2px solid rgba(255,255,255,0.35); */
+        background: rgba(0,0,0,0); /* keep it "real" for Safari */
+        cursor: pointer;
+      }
+
+      /* Give the link actual content (helps iOS sometimes) */
+      .email-hotspot span {
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+      }
+
+      /* Desktop hotspot (tweak if needed) */
+      .email-hotspot {
+        left: 62%;
+        top: 73%;
+        width: 28%;
         height: 6%;
       }
-    }
 
-    /* Debug (turn on if you need to see the clickable area) */
-    /* .email-hotspot { outline: 3px solid hotpink; background: rgba(255,0,255,.15); } */
-  </style>
-</head>
+      /* Mobile hotspot (tweak if needed) */
+      @media (max-width: 768px) {
+        .email-hotspot {
+          left: 20%;
+          top: 77%;
+          width: 60%;
+          height: 6%;
+        }
+      }
+    </style>
+  </head>
 
-<body>
-  <div class="wrap">
-    <picture>
-      <source media="(max-width: 768px)" srcset="mobile.png">
-      <img src="bemw.png" alt="Bored Eye Media">
-    </picture>
+  <body>
+    <div class="wrap">
+      <picture>
+        <source media="(max-width: 768px)" srcset="mobile.png" />
+        <img src="bemw.png" alt="Bored Eye Media" />
+      </picture>
 
-    <a class="email-hotspot" href="mailto:olesya@boredeyemedia.com" aria-label="Email Olesya"></a>
-  </div>
-</body>
+      <a class="email-hotspot" href="mailto:olesya@boredeyemedia.com" aria-label="Email Bored Eye Media">
+        <span>Email</span>
+      </a>
+    </div>
+  </body>
 </html>
+
