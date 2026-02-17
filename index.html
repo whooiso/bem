@@ -34,18 +34,15 @@
       height: auto;
     }
 
-    /* clickable email overlay */
     .email-hotspot {
       position: absolute;
       z-index: 10;
-      /* Desktop hotspot (tune if needed) */
       left: 62%;
       top: 73%;
       width: 28%;
       height: 6%;
     }
 
-    /* Mobile hotspot */
     @media (max-width: 768px) {
       .email-hotspot {
         left: 20%;
@@ -55,9 +52,8 @@
       }
     }
 
-    /* OPTIONAL: debugging (turn on to see the clickable area)
-    .email-hotspot { outline: 3px solid hotpink; background: rgba(255,0,255,.15); }
-    */
+    /* Debug (turn on if you need to see the clickable area) */
+    /* .email-hotspot { outline: 3px solid hotpink; background: rgba(255,0,255,.15); } */
   </style>
 </head>
 
