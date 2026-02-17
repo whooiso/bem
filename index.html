@@ -1,26 +1,32 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bored Eye Media</title>
-    <style>
-      body {
-        margin: 0;
-        background: #0a0e1a;
-        display: flex;
-        justify-content: center;
-      }
-      img {
-        width: 100%;
-        max-width: 1600px;
-        height: auto;
-        display: block;
-      }
-    </style>
-  </head>
-  <body>
-    <img src="bemw1.png" alt="Bored Eye Media" />
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bored Eye Media</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #0a0e1a;
+      display: flex;
+      justify-content: center;
+    }
+
+    img {
+      width: 100%;
+      max-width: 1600px;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <picture>
+    <source media="(max-width: 768px)" srcset="mobile.png">
+    <img src="bemw1.png" alt="Bored Eye Media">
+  </picture>
+</body>
 </html>
 
