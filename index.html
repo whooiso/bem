@@ -45,16 +45,44 @@ picture, img {
 </head>
 
 <body>
-<div class="wrap">
-  <picture>
-    <source media="(max-width: 768px)" srcset="mobile.png" />
-    <img src="bemw1.png" alt="Bored Eye Media" />
-  </picture>
+  <div class="wrap">
+    <picture>
+      <source media="(max-width: 768px)" srcset="mobile.png">
+      <img src="bemw.png" alt="Bored Eye Media">
+    </picture>
 
-  <a class="email-hotspot"
-     href="mailto:olesya@boredeyemedia.com">
-  </a>
-</div>
+    <a class="email-hotspot" href="mailto:olesya@boredeyemedia.com"></a>
+  </div>
 </body>
+
 </html>
+
+.wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+}
+
+.email-hotspot {
+  position: absolute;
+  z-index: 10;
+}
+
+/* Desktop hotspot */
+.email-hotspot {
+  left: 62%;
+  top: 73%;
+  width: 28%;
+  height: 6%;
+}
+
+/* Mobile hotspot */
+@media (max-width: 768px) {
+  .email-hotspot {
+    left: 20%;
+    top: 77%;
+    width: 60%;
+    height: 6%;
+  }
+}
 
