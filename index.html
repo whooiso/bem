@@ -1,47 +1,64 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bored Eye Media</title>
+
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HFFMB8D33Y"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFFMB8D33Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HFFMB8D33Y');
+  </script>
 
-  gtag('config', 'G-HFFMB8D33Y');
-</script>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bored Eye Media</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0a0e1a;
+      display: flex;
+      justify-content: center;
+    }
 
-<style>
-body {
-  margin: 0;
-  background: #0a0e1a;
-  display: flex;
-  justify-content: center;
-}
+    .wrap {
+      position: relative;
+      width: 100%;
+      max-width: 1600px;
+    }
 
-.wrap {
-  position: relative;
-  width: 100%;
-  max-width: 1600px;
-}
+    picture, img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
 
-picture, img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
+    /* clickable email overlay */
+    .email-hotspot {
+      position: absolute;
+      z-index: 10;
+      /* Desktop hotspot (tune if needed) */
+      left: 62%;
+      top: 73%;
+      width: 28%;
+      height: 6%;
+    }
 
-.email-hotspot {
-  position: absolute;
-  left: 24%;
-  top: 73%;
-  width: 52%;
-  height: 6%;
-}
-</style>
+    /* Mobile hotspot */
+    @media (max-width: 768px) {
+      .email-hotspot {
+        left: 20%;
+        top: 77%;
+        width: 60%;
+        height: 6%;
+      }
+    }
+
+    /* OPTIONAL: debugging (turn on to see the clickable area)
+    .email-hotspot { outline: 3px solid hotpink; background: rgba(255,0,255,.15); }
+    */
+  </style>
 </head>
 
 <body>
@@ -51,38 +68,7 @@ picture, img {
       <img src="bemw.png" alt="Bored Eye Media">
     </picture>
 
-    <a class="email-hotspot" href="mailto:olesya@boredeyemedia.com"></a>
+    <a class="email-hotspot" href="mailto:olesya@boredeyemedia.com" aria-label="Email Olesya"></a>
   </div>
 </body>
-
 </html>
-
-.wrap {
-  position: relative;
-  width: 100%;
-  max-width: 1600px;
-}
-
-.email-hotspot {
-  position: absolute;
-  z-index: 10;
-}
-
-/* Desktop hotspot */
-.email-hotspot {
-  left: 62%;
-  top: 73%;
-  width: 28%;
-  height: 6%;
-}
-
-/* Mobile hotspot */
-@media (max-width: 768px) {
-  .email-hotspot {
-    left: 20%;
-    top: 77%;
-    width: 60%;
-    height: 6%;
-  }
-}
-
